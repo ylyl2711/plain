@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>我的第一个仓库 · 纯静态版</title>
+    <style>
+      :root {
+        --primary: #2563eb;
+        --accent: #06b6d4;
+        --warn: #f59e0b;
+        --text: #0f172a;
+        --muted: #64748b;
+        --line: #e2e8f0;
+        --soft: #f1f5f9;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;
+        color: var(--text);
+        background: #ffffff;
+        line-height: 1.7;
+      }
+      .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+      .site-header {
+        background: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
+        color: #fff;
+        padding: 54px 0 46px;
+      }
+      .brand { margin: 0; font-family: Consolas, monospace; font-size: 14px; letter-spacing: 4px; opacity: .85; }
+      .site-header h1 { margin: 12px 0 6px; font-size: 38px; }
+      .subtitle { margin: 0; font-size: 17px; opacity: .9; }
+      .card { background: var(--soft); border-radius: 14px; padding: 26px 28px; margin-top: 26px; }
+      .card h2 { margin: 0 0 10px; font-size: 22px; color: var(--primary); }
+      .card p { margin: 0 0 14px; color: var(--muted); font-size: 16px; }
+      table { width: 100%; border-collapse: collapse; background: #fff; font-size: 15px; }
+      th, td { border: 1px solid var(--line); padding: 11px 14px; text-align: left; }
+      th { background: var(--primary); color: #fff; }
+      .tag { display: inline-block; padding: 2px 12px; border-radius: 20px; font-size: 13px; }
+      .tag.done { background: rgba(6,182,212,.16); color: #0891b2; }
+      .tag.todo { background: rgba(245,158,11,.18); color: #b45309; }
+      button {
+        border: none; border-radius: 10px; padding: 12px 26px; font-size: 16px;
+        font-family: inherit; color: #fff; cursor: pointer;
+        background: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
+      }
+      button:hover { opacity: .88; }
+      .site-footer {
+        margin-top: 32px; padding: 24px 0 40px; border-top: 1px solid var(--line);
+        color: var(--muted); font-size: 14px;
+      }
+      .site-footer p { margin: 4px 0; }
+      code {
+        font-family: Consolas, monospace; background: rgba(15,23,42,.06);
+        padding: 2px 6px; border-radius: 4px; font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <p class="brand">NO-NODE VERSION</p>
+        <h1>我的第一个仓库</h1>
+        <p class="subtitle">— 纯静态版：不需要 npm，也能发布到 GitHub Pages —</p>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section class="card">
+        <h2>自我介绍</h2>
+        <p>
+          这是纯静态版本：所有代码都在一个 <code>index.html</code> 文件里。
+          机房电脑装不了 Node 的时候，用这个版本照样能完成本周作业。
+        </p>
+        <table>
+          <thead>
+            <tr><th>项目</th><th>内容</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>姓名</td><td>张三</td></tr>
+            <tr><td>班级</td><td>软件工程专升本 2 班</td></tr>
+            <tr><td>学号</td><td>20240000</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="card">
+        <h2>课程清单</h2>
+        <table>
+          <thead>
+            <tr><th>周次</th><th>主题</th><th>状态</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>第 8 周</td><td>前端工程化入门 · Vite</td><td><span class="tag done">已完成</span></td></tr>
+            <tr><td>第 9 周</td><td>前端 ↔ 后端接口交互</td><td><span class="tag done">已完成</span></td></tr>
+            <tr><td>第 10 周</td><td>Git &amp; GitHub 入门</td><td><span class="tag todo">进行中</span></td></tr>
+            <tr><td>第 11 周</td><td>全栈 CRUD 实战</td><td><span class="tag todo">未开始</span></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="card">
+        <h2>动手试试</h2>
+        <p>点一下按钮，这就是一次「代码改动」，改完记得提交推送。</p>
+        <button type="button" onclick="addLike()">给我点赞：<span id="like-count">0</span></button>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>本页面无需打包，可直接从 main 分支开启 GitHub Pages</p>
+        <p>操作路径：仓库 → Settings → Pages → Branch 选 main → /(root) → Save</p>
+      </div>
+    </footer>
+
+    <script>
+      var count = 0
+      function addLike() {
+        count += 1
+        document.getElementById('like-count').textContent = count
+      }
+    </script>
+  </body>
+</html>
